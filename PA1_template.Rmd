@@ -107,6 +107,16 @@ print(myMeanFilled)
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
+```{r, echo=TRUE}
+library(timeDate)
+library(lattice)
+library(datasets)
 
+myFilledData$weekend <- factor(isWeekend(as.Date(myFilledData$date)))
+myFilledData$weekend <- factor(myFilledData$weekend, labels = c("Weekday", "Weekend"))
 
+res <- aggregate(myFilledData["steps"], by=myFilledData[c("interval", "weekend")], FUN=mean, na.rm=TRUE)
+
+xyplot(steps ~ interval | weekend , data = res, type = "l", layout = c(1,2))
+```
 
