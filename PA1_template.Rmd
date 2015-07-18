@@ -20,7 +20,7 @@ myData <-read.csv("activity.csv", sep = ",", header = TRUE, as.is = TRUE)
 
 ```{r, echo=TRUE}
 stepsPerDay <- aggregate(myData["steps"], by=myData[c("date")], FUN=sum)
-print(stepsPerDay)
+# print(stepsPerDay)
 ```
 
 
@@ -32,23 +32,31 @@ hist(myHist, main="Histogram", xlab="Number of steps per day", ylab="Frequency")
 ```
 
 
-Mean and Median calculation
+###Mean and Median calculation
+
+Median:
 
 ```{r, echo=TRUE}
 myMedian = median(myHist, na.rm = TRUE)
 print("Median:")
 print(myMedian)
+
+```
+
+Mean:
+
+```{r, echo=TRUE}
+
 myMean = mean(myHist, na.rm = TRUE)
 print("Mean:")
 print(myMean)
 ```
 
-
 ## What is the average daily activity pattern?
 
 ```{r, echo=TRUE}
 res <- aggregate(myData["steps"], by=myData[c("interval")], FUN=mean, na.rm=TRUE)
-print(res)
+# print(res)
 plot(res$interval, res$steps, type="l", xlab= "Interval", ylab= "Mean steps",  lwd=2)
 ```
 
