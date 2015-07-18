@@ -1,14 +1,12 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
 author: "Alex Sickert"
-date: "June 14, 2015"
+date: "July 18, 2015"
 output: html_document
 ---
 
 
-
 ## Loading and preprocessing the data
-
 
 
 ```{r, echo=TRUE}
